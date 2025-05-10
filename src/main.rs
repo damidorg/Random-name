@@ -8,8 +8,8 @@ fn main() {
             println!(">");
             let mut input = String::new();
             io::stdin().read_line(&mut input).expect("invalid input");
-            let tinput = &mut input[1..].trim();
-            let chin = tinput.trim();
+            let tinput = &input.trim();
+            let chin = &tinput[1..];
             names.push(chin.to_string());
             if input.trim() == "done" {
                 break;
@@ -19,4 +19,3 @@ fn main() {
         println!("The winner is {}", names[randomnumber])
     }
 }
-//afc

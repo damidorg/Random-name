@@ -8,14 +8,25 @@ fn main() {
             println!(">");
             let mut input = String::new();
             io::stdin().read_line(&mut input).expect("invalid input");
-            let tinput = &input.trim();
-            let chin = &tinput[1..];
-            names.push(chin.to_string());
             if input.trim() == "done" {
                 break;
             }
+            if input == "\n" {
+                println!("input a name");
+            }
+            if input == "\n\r" {
+                println!("input a name");
+            } else {
+                let chin = input.trim();
+                names.push(chin.to_string());
+            }
         }
-        let randomnumber = rand::rng().random_range(..names.len());
-        println!("The winner is {}", names[randomnumber])
+
+        if names.len() > 0 {
+            let randomnumber = rand::rng().random_range(..names.len());
+            println!("The winner is {}", names[randomnumber])
+        } else {
+            println!("no names")
+        }
     }
 }
